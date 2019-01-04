@@ -79,5 +79,8 @@ typings/
 # DynamoDB Local files
 .dynamodb/
 
-#compilied bundles
+# editors configs
+.vscode/
+
+# compilied bundles
 dist/
