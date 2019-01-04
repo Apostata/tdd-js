@@ -1,0 +1,19 @@
+Mocha:
+    Simples e pequeno
+
+Mocha x Jasmine X Ava:
+    jasmine é bom também, porém segundo ele vem com coisa desnecessárias junto
+    mocha é mais rápido.
+
+    Ava é rápido mas parece embrionário ainda(será ?).
+
+Chai:
+    Biblioteca de asserções, BDD e TDD.
+    Muito completa, para integrar com o Mocha
+
+Instanbul:
+    trabalhar com coverage, para integrar com o Mocha
+    nyc facilita inda mais o coverage.
+
+Sinon:
+    Cria os spies, stubs e Mocks.
