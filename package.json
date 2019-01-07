@@ -3,8 +3,14 @@
   "version": "1.0.0",
   "description": "Implementando testes com js",
   "main": "index.js",
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test:terminal": "./node_modules/.bin/mocha tests/**/*.test.js",
+    "test": "./node_modules/.bin/mocha-webpack --webpack-config=config/webpack-dev.config.js \"tests/**/*.test.js\" --watch",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "dev": "NODE_ENV=\"development\" webpack-dev-server --hot --config=config/webpack-dev.config.js",
     "prod": "NODE_ENV=\"production\" ./node_modules/.bin/webpack --config=config/webpack-prod.config.js"
@@ -43,12 +49,16 @@
     "@babel/runtime": "^7.2.0",
     "babel-loader": "^8.0.4",
     "babel-plugin-dynamic-import-node": "^2.2.0",
+    "chai": "^4.2.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-mocha": "^5.2.0",
     "eslint-plugin-react": "^7.12.2",
     "husky": "^1.3.1",
+    "mocha": "^5.2.0",
+    "mocha-webpack": "^2.0.0-beta.0",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.0",

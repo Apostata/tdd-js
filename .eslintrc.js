@@ -6,5 +6,13 @@ module.exports = {
         ["error", {
             "devDependencies": true}
         ]
+    },
+    {
+      "plugins": [
+        "mocha"
+      ],
+      "rules": {
+        "mocha/no-exclusive-tests": "error"
+      }
     }
 };
