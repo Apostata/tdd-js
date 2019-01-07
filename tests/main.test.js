@@ -1,45 +1,47 @@
 
-import { should, expect, assert } from 'chai';
+import { expect } from 'chai';
+import FizzBuzz from '../src/FizzBuzz';
 
-describe('Class Main', () => {
-  let arr;
+describe('FizzBuzz', () => {
+  context('Smoke tests', () => {
+    it('Should FizzBuzz exist', () => {
+      expect(FizzBuzz).to.exist;
+    });
 
-  before(() => {
-    // exemplo: inicia conexão banco.
-  });
+    it('Should fizzBuzz to be instance of FizzBuzz', () => {
+      const fizzBuzz = new FizzBuzz(3);
+      expect(fizzBuzz).to.be.instanceOf(FizzBuzz);
+    });
 
-  after(() => {
-    // exemplo: fecha conexão banco.
-  });
+    it('Should FizzBuzz(3) to be equal "Fizz"', () => {
+      const fizzBuzz = new FizzBuzz(3);
+      expect(fizzBuzz.isFizzBuzz).to.be.equal('Fizz');
+    });
 
-  beforeEach(() => { // antes de cada it()
-    arr = [1, 2, 3];
-  });
+    it('Should FizzBuzz(6) to be equal "Fizz"', () => {
+      const fizzBuzz = new FizzBuzz(6);
+      expect(fizzBuzz.isFizzBuzz).to.be.equal('Fizz');
+    });
 
-  afterEach(() => { // depois de cada it()
-  });
+    it('Should FizzBuzz(5) to be equal "Buzz"', () => {
+      const fizzBuzz = new FizzBuzz(5);
+      expect(fizzBuzz.isFizzBuzz).to.be.equal('Buzz');
+    });
 
 
-  it('Should be an array ', () => { // smoke test -> se existe ou de um tipo
-    expect(arr).to.be.a('array');
-  });
+    it('Should FizzBuzz(10) to be equal "Buzz"', () => {
+      const fizzBuzz = new FizzBuzz(10);
+      expect(fizzBuzz.isFizzBuzz).to.be.equal('Buzz');
+    });
 
-  it('Should have size of 4 when push another value to the array ', () => {
-    arr.push(4);
-    expect(arr).to.have.lengthOf(4);
-  });
+    it('Should FizzBuzz(15) to be equal "FizzBuzz"', () => {
+      const fizzBuzz = new FizzBuzz(15);
+      expect(fizzBuzz.isFizzBuzz).to.be.equal('FizzBuzz');
+    });
 
-  it('Should remove 3 when use pop in the array', () => {
-    arr.pop();
-    expect(arr).to.not.include(3);
-  });
-
-  it('Should have size of 2 when pop another value to the array', () => {
-    arr.pop();
-    expect(arr).to.have.lengthOf(2);
-  });
-
-  it('Should return true when pop 3 from de array', () => {
-    expect(arr.pop() === 3).to.be.true;
+    it('Should FizzBuzz(4) to be equal 4', () => {
+      const fizzBuzz = new FizzBuzz(4);
+      expect(fizzBuzz.isFizzBuzz).to.be.equal(4);
+    });
   });
 });
