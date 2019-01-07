@@ -1,14 +1,24 @@
 module.exports = {
     "extends": "airbnb",
+    "env": { //para o eslint reconhecer o mocha
+      "mocha": true
+    },
     "rules": {
-        //"linebreak-style": 0,
+      "no-unused-expressions": 0, // to reseto do chai friendly
+      "chai-friendly/no-unused-expressions": 2, // to reseto do chai friendly,
+      "no-unused-vars": [
+        "error",
+        {
+          "varsIgnorePattern": "should|assert" //slint ignora o should e o asset também
+        }
+      ],
         "import/no-extraneous-dependencies":
         ["error", {
             "devDependencies": true},
-        ],
-        "mocha/no-exclusive-tests": "error"
+        ]
     },
-    "plugins": [
-      "mocha"
+    "plugins": [ // to work with chai
+      "chai-friendly"
     ]
+
 };
