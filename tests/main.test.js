@@ -1,6 +1,6 @@
 
 import { expect } from 'chai';
-import FizzBuzz from '../src/FizzBuzz';
+import FizzBuzz from '../src/main';
 
 describe('FizzBuzz', () => {
   context('Smoke tests', () => {

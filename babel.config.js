@@ -33,4 +33,9 @@ module.exports = {
     '@babel/plugin-transform-flow-strip-types',
     '@babel/plugin-transform-regenerator',
   ],
+  env: { // ambiente teste
+    test: {
+      plugins: ['istanbul'],
+    },
+  },
 };

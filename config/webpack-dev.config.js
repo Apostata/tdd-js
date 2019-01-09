@@ -1,28 +1,25 @@
 // config files
-const jsLoader = require('./loaders/jsLoaders');
+const loaders = require('./loaders');
 const plugins = require('./plugins');
 const devServer = require('./devServer');
 
-const nodeENV = process.env.NODE_ENV || 'production';
+const nodeENV = process.env.NODE_ENV;
 
+// eslint-disable-next-line no-console
 console.log(nodeENV);
 
 const webpackConfig = {
-  mode: nodeENV, // para utilizar o optimization
+  mode: nodeENV !== 'development' ? 'production' : 'development',
+  target: nodeENV === 'test' ? 'node' : 'web',
   entry: {
-    app: './src/app.js',
+    app: './src/main.js',
   },
   output: {
     filename: '[name].js',
   },
-  devtool: 'eval-source-map',
+  devtool: nodeENV === 'production' ? 'source-map' : 'eval-source-map',
   module: {
-    rules: [
-      // webpack 2 trocar por loaders:[
-      jsLoader,
-      // ,cssLoaders,
-      // ,fileLoaders
-    ],
+    rules: loaders,
   },
   plugins, // shorthand => plugins : plugins
   devServer,
