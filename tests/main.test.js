@@ -17,11 +17,6 @@ sinonStubPromise(sinon);
 global.fetch = fetch;
 
 describe('Spotify Wrapper', () => {
-  beforeEach(() => {
-
-  });
-
-
   context('Smoke tests', () => {
     it('Should Spotify wrapper exist', () => {
       expect(Spotify).to.exist;
