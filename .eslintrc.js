@@ -2,7 +2,8 @@ module.exports = {
     "parser": "babel-eslint",
     "extends": "airbnb",
     "env": { //para o eslint reconhecer o mocha
-      "mocha": true
+      "mocha": true,
+      "browser": true
     },
     "rules": {
       "no-unused-expressions": 0, // to reseto do chai friendly

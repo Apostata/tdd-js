@@ -5,9 +5,9 @@ const devServer = require('./devServer');
 
 const nodeENV = process.env.NODE_ENV;
 
-// eslint-disable-next-line no-console
-console.log(nodeENV);
-
+/*
+target é node caso o ambiente seja de teste
+*/
 const webpackConfig = {
   mode: nodeENV !== 'development' ? 'production' : 'development',
   target: nodeENV === 'test' ? 'node' : 'web',

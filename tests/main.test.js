@@ -1,52 +1,66 @@
 
-import { expect } from 'chai';
-import FizzBuzz from '../src/main';
+import chai, { expect } from 'chai';
+import sinon from 'sinon';
+import sinonChai from 'sinon-chai'; // integração do sinon com o chai
+import sinonStubPromise from 'sinon-stub-promise';
+import fetch from 'node-fetch';
+import Spotify from '../src/main';
+/*
+  Intregrando do sinon com o chai.
+  Adiciona asserts ao chai para trabalhar com mock
+*/
+chai.use(sinonChai);
 
-describe('FizzBuzz', () => {
+// "ensina" promises ao sinon
+sinonStubPromise(sinon);
+
+global.fetch = fetch;
+
+describe('Spotify Wrapper', () => {
+  beforeEach(() => {
+
+  });
+
+
   context('Smoke tests', () => {
-    it('Should FizzBuzz exist', () => {
-      expect(FizzBuzz).to.exist;
+    it('Should Spotify wrapper exist', () => {
+      expect(Spotify).to.exist;
     });
 
-    it('Should fizzBuzz to be instance of FizzBuzz', () => {
-      const fizzBuzz = new FizzBuzz(3);
-      expect(fizzBuzz).to.be.instanceOf(FizzBuzz);
+  //   it('Should exist the search method', () => {
+  //     expect(Spotify.search).to.exist;
+  //   });
+
+  //   it('Should exist the searchAlbuns method', () => {
+  //     expect(Spotify.searchAlbuns).to.exist;
+  //   });
+
+  //   it('Should exist the searchArtists method', () => {
+  //     expect(Spotify.searchArtists).to.exist;
+  //   });
+
+  //   it('Should exist the searchTracks method', () => {
+  //     expect(Spotify.searchTracks).to.exist;
+  //   });
+
+  //   it('Should exist the searchPlaylists method', () => {
+  //     expect(Spotify.searchPlaylists).to.exist;
+  //   });
+  });
+
+  context('Generic Search', () => {
+    it('Should call fetch function', () => {
+      // testa uma chamada no fetch dentro do metodo estático search da class spotify
+      /* é preciso definir
+        "env": { //para o eslint reconhecer o mocha e os métodos de window (como no browser)
+          "mocha": true,
+          "browser": true
+        },
+      */
+      const fetchedStub = sinon.stub(global, 'fetch');
+
+      Spotify.search();
+      expect(fetchedStub).to.have.been.calledOnce;
     });
-
-    it('Should FizzBuzz(3) to be equal "Fizz"', () => {
-      const fizzBuzz = new FizzBuzz(3);
-      expect(fizzBuzz.isFizzBuzz).to.be.equal('Fizz');
-    });
-
-    it('Should FizzBuzz(6) to be equal "Fizz"', () => {
-      const fizzBuzz = new FizzBuzz(6);
-      expect(fizzBuzz.isFizzBuzz).to.be.equal('Fizz');
-    });
-
-    it('Should FizzBuzz(5) to be equal "Buzz"', () => {
-      const fizzBuzz = new FizzBuzz(5);
-      expect(fizzBuzz.isFizzBuzz).to.be.equal('Buzz');
-    });
-
-
-    it('Should FizzBuzz(10) to be equal "Buzz"', () => {
-      const fizzBuzz = new FizzBuzz(10);
-      expect(fizzBuzz.isFizzBuzz).to.be.equal('Buzz');
-    });
-
-    it('Should FizzBuzz(15) to be equal "FizzBuzz"', () => {
-      const fizzBuzz = new FizzBuzz(15);
-      expect(fizzBuzz.isFizzBuzz).to.be.equal('FizzBuzz');
-    });
-
-    it('Should FizzBuzz(4) to be equal 4', () => {
-      const fizzBuzz = new FizzBuzz(4);
-      expect(fizzBuzz.isFizzBuzz).to.be.equal(4);
-    });
-
-    // it('Should FizzBuzz(0) to be equal 0', () => {
-    //   const fizzBuzz = new FizzBuzz(0);
-    //   expect(fizzBuzz.isFizzBuzz).to.be.equal(0);
-    // });
   });
 });
