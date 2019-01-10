@@ -80,7 +80,7 @@ typings/
 .dynamodb/
 
 # editors configs
-.vscode/
+.vscode
 
 # compilied bundles
 dist/

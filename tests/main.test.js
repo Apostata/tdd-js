@@ -43,5 +43,10 @@ describe('FizzBuzz', () => {
       const fizzBuzz = new FizzBuzz(4);
       expect(fizzBuzz.isFizzBuzz).to.be.equal(4);
     });
+
+    // it('Should FizzBuzz(0) to be equal 0', () => {
+    //   const fizzBuzz = new FizzBuzz(0);
+    //   expect(fizzBuzz.isFizzBuzz).to.be.equal(0);
+    // });
   });
 });
