@@ -5,7 +5,7 @@ import sinonChai from 'sinon-chai'; // integração do sinon com o chai
 // import sinonStubPromise from 'sinon-stub-promise';
 import fetch from 'node-fetch';
 import {
-  search, searchAlbuns, searchArtist, searchPlayLists, searchTracks,
+  search, searchAlbums, searchArtist, searchPlayLists, searchTracks,
 } from '../src/search';
 /*
   Intregrando do sinon com o chai.

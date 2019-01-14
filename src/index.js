@@ -1,6 +1,6 @@
 export {
   search,
-  searchAlbuns,
+  searchAlbums,
   searchArtist,
   searchPlayLists,
 } from './search';
