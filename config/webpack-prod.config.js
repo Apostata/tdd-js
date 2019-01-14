@@ -11,7 +11,7 @@ const webpackConfig = {
   mode: nodeENV !== 'development' ? 'production' : 'development',
   target: nodeENV === 'test' ? 'node' : 'web',
   entry: {
-    app: './src/main.js',
+    app: './examples/albums.js',
   },
   output: {
     filename: '[name].js',
@@ -21,7 +21,7 @@ const webpackConfig = {
     rules: loaders,
   },
   plugins, // shorthand => plugins : plugins
-  watch: true,
+  // watch: true,
 };
 
 module.exports = webpackConfig;
