@@ -7,16 +7,23 @@
   <title>Document</title>
 </head>
 <body>
+  <div id="albums">
+
+  </div>
 <script src="../dist/spotify-wrapper.umd.js"></script>
 <script>
-  const albums = spotifyWrapper.searchAlbums('wardruna')
-  .then(data => {
-    console.log(data);
-   let markap = data.albums.items.map((item)=>{
-      `<img src="${item.imasges[0].url}" alt="${item.name}"/>`
-    }).join('');
-    console.log(markap);
-  })
+  const albums = spotifyWrapper.searchAlbums('iron maiden');
+  const albumsEl = document.getElementById('albums');
+
+  albums.then(data => {
+      const markup = data.albums.items.map(item => {
+        return `<img src="${item.images[0].url}" alt="${item.name}" />`
+      }).join('');
+
+      albumsEl.innerHTML = markup;
+    }
+  )
+  .catch(error => console.log(error));
 </script>
 </body>
 </html>

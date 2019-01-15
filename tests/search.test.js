@@ -23,7 +23,7 @@ describe('Search', () => {
 
   beforeEach(() => {
     fetchedStub = sinon.stub(global, 'fetch');
-    fetchedStub.resolves({ album: 'name' });
+    fetchedStub.resolves({ json: () => ({ album: 'name' }) });
   });
 
   afterEach(() => {
@@ -37,7 +37,7 @@ describe('Search', () => {
     });
 
     it('Should searchAlbuns exist', () => {
-      expect(searchAlbuns).to.exist;
+      expect(searchAlbums).to.exist;
     });
 
     it('Should searchArtist exist', () => {
@@ -105,12 +105,12 @@ describe('Search', () => {
 
   describe('Search Albuns', () => {
     it('Should call fetch function ', () => {
-      searchAlbuns('helvegen');
+      searchAlbums('helvegen');
       expect(fetchedStub).to.have.been.calledOnce;
     });
 
     it('Should call fetch with correct URL ', () => {
-      searchAlbuns('helvegen');
+      searchAlbums('helvegen');
       expect(fetchedStub).to.have.been.calledWith('https://api.spotify.com/v1/search?query=helvegen&type=album');
     });
   });
