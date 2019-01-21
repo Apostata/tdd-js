@@ -1,0 +1,10 @@
+language: node_js
+node_js:
+ - "7"
+ cahce:
+  directories:
+    "node_modules" ## não precisar ficar instalando as dependencias via yarn install ou npm install
+
+before_script:
+after_script:
+after_success:
