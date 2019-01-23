@@ -1,4 +1,4 @@
----
+--- # yml precisa ter 4 fucking espaços
 after_success:
   - "yarn test:coverage"
 before_script:
@@ -7,5 +7,4 @@ cache:
   directories: node_modules
 language: node_js
 node_js:
-  - iojs
   - "7"
