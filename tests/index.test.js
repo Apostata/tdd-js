@@ -10,7 +10,9 @@ global.fetch = fetch;
 
 describe('Spotify Wrapper lib', () => {
   it('Should create a instance of spotify wrapper', () => {
-    const spotify = new SpotifyWrapper();
+    const spotify = new SpotifyWrapper({
+      token: 'foo',
+    });
     expect(spotify).to.be.an.instanceof(SpotifyWrapper);
   });
 
@@ -22,7 +24,9 @@ describe('Spotify Wrapper lib', () => {
   });
 
   it('Should use default apiURL if not provided ', () => {
-    const spotify = new SpotifyWrapper();
+    const spotify = new SpotifyWrapper({
+      token: 'foo',
+    });
     expect(spotify.apiURL).to.be.equal('https://api.spotify.com/v1');
   });
 
@@ -46,7 +50,9 @@ describe('Spotify Wrapper lib', () => {
     });
 
     it('Should have request method ', () => {
-      const spotify = new SpotifyWrapper();
+      const spotify = new SpotifyWrapper({
+        token: 'foo',
+      });
       expect(spotify.request).to.exist;
     });
 
@@ -61,7 +67,9 @@ describe('Spotify Wrapper lib', () => {
     });
 
     it('Should call fetch with correct url', () => {
-      const spotify = new SpotifyWrapper();
+      const spotify = new SpotifyWrapper({
+        token: 'foo',
+      });
 
       spotify.request('url');
 
