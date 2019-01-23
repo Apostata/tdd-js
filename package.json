@@ -1,6 +1,6 @@
 {
   "name": "tdd-js",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Implementando testes com js",
   "main": "src/index.js",
   "standard": {
