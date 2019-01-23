@@ -4,6 +4,9 @@ node_js:
  cahce:
   directories:
     "node_modules" ## não precisar ficar instalando as dependencias via yarn install ou npm install
+branches:
+  only:
+  - spotify
 
 before_script:
 after_script:
