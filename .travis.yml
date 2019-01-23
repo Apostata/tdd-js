@@ -1,6 +1,6 @@
---- # yml precisa ter 4 fucking espaços
+---
 after_success:
-  - "yarn test:coverage"
+  - "yarn coveralls"
 before_script:
   - "yarn build:all"
 cache:

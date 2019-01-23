@@ -19,10 +19,11 @@
     "build:umd": "cross-env NODE_ENV=development ./node_modules/.bin/webpack --config=config/webpack-umd.config.js --output-filename spotify-wrapper.umd.js",
     "build:umd:min": "cross-env NODE_ENV=production ./node_modules/.bin/webpack --config=config/webpack-umd.config.js --output-filename spotify-wrapper.umd.min.js -p",
     "build:watch": "yarn build --watch",
-    "build:all":"yarn build && yarn build:umd && yarn build:umd:min",
+    "build:all": "yarn build && yarn build:umd && yarn build:umd:min",
     "clear": "rimraf lib",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --hot --config=config/webpack-dev.config.js",
-    "prod": "cross-env NODE_ENV=development ./node_modules/.bin/webpack --config=config/webpack-prod.config.js"
+    "prod": "cross-env NODE_ENV=development ./node_modules/.bin/webpack --config=config/webpack-prod.config.js",
+    "coveralls": "yarn test:coverage && nyc report --reporter=text-lcov | coveralls"
   },
   "nyc": {
     "check-coverage": true,
@@ -83,6 +84,7 @@
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "babel-plugin-istanbul": "^5.1.0",
     "chai": "^4.2.0",
+    "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.1.0",
