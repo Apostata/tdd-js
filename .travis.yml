@@ -1,7 +1,5 @@
 language: node_js
-node_js:
-  - "iojs"
-  - "7"
+node_js: 7
  cahce:
   directories:
     "node_modules" ## não precisar ficar instalando as dependencias via yarn install ou npm install
