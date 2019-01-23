@@ -1,11 +1,8 @@
 
-import { API_URL, ACCESS_TOKEN } from './config';
+import { API_URL, HEADERS } from './config';
 import toJSON from './utils';
 
-const fetchOpts = {
-  headers: { Authorization: `Bearer ${ACCESS_TOKEN}` },
-};
-export const search = (query, type) => fetch(`${API_URL}/search?query=${query}&type=${type}`, fetchOpts)
+export const search = (query, type) => fetch(`${API_URL}/search?query=${query}&type=${type}`, HEADERS)
   .then(toJSON)
   .catch(error => error);
 
