@@ -1,11 +1,9 @@
-language: node_js
-node_js: 7
- cahce:
-  directories:
-    "node_modules" ## não precisar ficar instalando as dependencias via yarn install ou npm install
+language:node_js
+node_js:- "iojs"
+  - "7"
+ cache:directories:"node_modules"
 
-before_script:
-  - yarn build:all
-after_script:
-after_success:
-  - yarn test:coverage
+before_script:- yarn build:all
+after_success:- yarn test:coverage
+
+
