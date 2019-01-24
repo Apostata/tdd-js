@@ -1,6 +1,6 @@
 const path = require('path');
 // const loaders = require('./loaders');
-const plugins = require('./plugins');
+// const plugins = require('./plugins');
 
 const include = path.join(__dirname, 'src');
 const nodeENV = process.env.NODE_ENV;
@@ -12,7 +12,8 @@ const webpackConfig = {
   mode: nodeENV !== 'development' ? 'production' : 'development',
   // target: nodeENV === 'test' ? 'node' : 'web',
   entry: {
-    app: './src/index.js',
+    // app: './src/index.js',
+    app: './src/umd.js',
   },
   output: {
     path: path.join(__dirname, '../dist'),

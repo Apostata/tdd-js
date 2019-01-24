@@ -42,7 +42,7 @@ describe('Spotify Wrapper lib', () => {
 
     beforeEach(() => {
       fetchedStub = sinon.stub(global, 'fetch');
-      fetchedStub.resolves({ json: () => ({ album: 'name' }) });
+      // fetchedStub.resolves({ json: () => ({ album: 'name' }) });
     });
 
     afterEach(() => {
@@ -50,6 +50,7 @@ describe('Spotify Wrapper lib', () => {
     });
 
     it('Should have request method ', () => {
+      fetchedStub.resolves({ json: () => ({ album: 'name' }) });
       const spotify = new SpotifyWrapper({
         token: 'foo',
       });
@@ -57,6 +58,7 @@ describe('Spotify Wrapper lib', () => {
     });
 
     it('Should call fetch when request', () => {
+      fetchedStub.resolves({ json: () => ({ album: 'name' }) });
       const spotify = new SpotifyWrapper({
         token: 'foo',
       });
@@ -67,6 +69,7 @@ describe('Spotify Wrapper lib', () => {
     });
 
     it('Should call fetch with correct url', () => {
+      fetchedStub.resolves({ json: () => ({ album: 'name' }) });
       const spotify = new SpotifyWrapper({
         token: 'foo',
       });
@@ -77,6 +80,7 @@ describe('Spotify Wrapper lib', () => {
     });
 
     it('Should call fetch with correct headers', () => {
+      fetchedStub.resolves({ json: () => ({ album: 'name' }) });
       const spotify = new SpotifyWrapper({
         token: 'foo',
       });

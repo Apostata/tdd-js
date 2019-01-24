@@ -12,7 +12,10 @@
   </div>
 <script src="../dist/spotify-wrapper.umd.js"></script>
 <script>
-  const albums = spotifyWrapper.searchAlbums('iron maiden');
+  const sw = new spotifyWrapper({
+    token:'BQBSj_5Co5-TKyZY9Etp7dzawzEBHCDLffH5sYUWXWFEy2hbjSRnqtIKodeO9UkvqgIEKSRk16BXaS8_YTPSH3GPIZf1F3H8_3pcK_ww1notcx1KMHV5-kBqdjaGaJggIwGVbfmFwkvzls7dZ10'
+  })
+  const albums = sw.search.albums('iron maiden');
   const albumsEl = document.getElementById('albums');
 
   albums.then(data => {

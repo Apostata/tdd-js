@@ -76,6 +76,15 @@ describe('Album', () => {
         expect(data).to.be.deep.eql({ album: 'name' });
       });
     });
+
+    it('Should return error from promise when wrog url', () => {
+      fetchStub.rejects(new Error('foo'));
+      const album = spotify.album.getAlbums();
+
+      album.catch((data) => {
+        expect(data.message).to.be.eql('foo');
+      });
+    });
   });
 
   describe('getAlbumTracks Method', () => {
