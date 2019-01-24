@@ -1,3 +1,8 @@
+
+/* eslint no-param-reassign:
+  ["error", { "props": true, "ignorePropertyModificationsFor": ["element"] }]
+*/
+
 export default function renderAlbums(data, element) {
   const markup = `
   <div class="list-item">
@@ -7,5 +12,6 @@ export default function renderAlbums(data, element) {
       <p class="list-subtitle">${data[0].artists[0].name}</p>
     </div>
   </div>`;
+
   element.innerHTML = markup;
 }
