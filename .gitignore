@@ -83,4 +83,4 @@ typings/
 .vscode
 
 # compilied bundles
-dist/
+# dist/
