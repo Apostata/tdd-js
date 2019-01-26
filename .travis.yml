@@ -1,8 +1,6 @@
 ---
 after_success:
   - "yarn coveralls"
-before_script:
-  - "yarn build:all"
 cache:
   directories: node_modules
 language: node_js
