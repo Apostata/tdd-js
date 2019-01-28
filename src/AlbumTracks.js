@@ -1,6 +1,8 @@
 /* eslint no-param-reassign:
   ["error", { "props": true, "ignorePropertyModificationsFor": ["element"] }]
 */
+// import convertToHumanTime from './ConvertToHumanTime';
+
 function createMarkup(data) {
   return data.map(track => `
   <div class="music" data-track-preview="${track.preview_url}">

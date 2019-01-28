@@ -13,4 +13,5 @@ export default function renderAlbumInfo(data, element) {
   </div>
   `;
   element.innerHTML = markup;
+  return data;
 }
