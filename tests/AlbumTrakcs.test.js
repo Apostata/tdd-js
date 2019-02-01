@@ -4,7 +4,6 @@ import renderAlbumTracks from '../src/AlbumTracks';
 import convertToHumanTime from '../src/ConvertToHumanTime';
 
 describe('AlbumTracks', () => {
-
   const data = [
     {
       preview_url: 'https://p.scdn.co/mp3-preview/ab3d501c5ffbf560e94094f76cd36d874a26e941?cid=8897482848704f2a8f8d7c79726a70d4',
