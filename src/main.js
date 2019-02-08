@@ -5,5 +5,8 @@
   que é para rodar em node
 */
 
+const program = require('commander');
 
-console.log('Hello World!');
+program
+  .version('1.0.0')
+  .parse(process.argv);

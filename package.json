@@ -109,7 +109,6 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
-    "spotify-wrapper": "^2.1.0"
   },
   "husky": {
     "hooks": {
