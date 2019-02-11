@@ -1,8 +1,8 @@
 {
-  "name": "tdd-js",
+  "name": "btc-converter",
   "version": "1.0.1",
   "description": "Implementando testes com js",
-  "main": "src/index.js",
+  "main": "index.js",
   "standard": {
     "env": [
       "mocha"
@@ -19,8 +19,12 @@
     "build": "yarn clear && ./node_modules/.bin/babel --out-dir bin src",
     "build:watch": "yarn build --watch",
     "build:all": "yarn build && yarn build:umd && yarn build:umd:min",
-    "clear": "rimraf lib",
+    "clear": "rimraf bin",
     "coveralls": "yarn test:coverage && nyc report --reporter=text-lcov | coveralls"
+  },
+  "preferGlobal": true,
+  "bin": {
+    "btc-converter": "bin/main.js"
   },
   "nyc": {
     "check-coverage": true,
