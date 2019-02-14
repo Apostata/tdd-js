@@ -24,4 +24,22 @@ describe('Main', () => {
       done();
     });
   });
+
+  it('Should return currency option when btc-converter --help', (done) => {
+    exec(`${btcConverter} --help`, (err, stdout, stderr) => {
+      if (err) throw err;
+      expect(stdout.includes('--currency')).to.be.true;
+      // replace `\n`(quebra de linha) pois o console.log() sempre quebra uma linha
+      done();
+    });
+  });
+
+  it('Should return amount option when btc-converter --help', (done) => {
+    exec(`${btcConverter} --help`, (err, stdout, stderr) => {
+      if (err) throw err;
+      expect(stdout.includes('--amount')).to.be.true;
+      // replace `\n`(quebra de linha) pois o console.log() sempre quebra uma linha
+      done();
+    });
+  });
 });

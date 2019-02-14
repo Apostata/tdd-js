@@ -10,4 +10,9 @@ var program = require('commander');
 
 var pkg = require('../package.json');
 
-program.version(pkg.version).description('Convert Bitcoin to any currency defined').parse(process.argv);
+var ConvertBTC = require('./ConvertBTC');
+
+program.version(pkg.version).description('Convert Bitcoin to any currency defined').option('-C, --currency <currency>', 'Currency to be converted. Default(USD)').option('-A, --amount <amount>', 'Volume in bitcon to be converted. Default(1)').parse(process.argv);
+var currency = program.currency,
+    amount = program.amount;
+console.log(ConvertBTC(currency, amount));

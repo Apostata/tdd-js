@@ -29,7 +29,6 @@
   "nyc": {
     "check-coverage": true,
     "functions": 80,
-    "lines": 80,
     "reporter": [
       "text",
       "html"
@@ -101,8 +100,9 @@
     "jsdom-global": "^3.0.2",
     "mocha": "^5.2.0",
     "mocha-webpack": "^2.0.0-beta.0",
+    "nock": "^10.0.6",
     "node-fetch": "^2.3.0",
-    "nyc": "^13.1.0",
+    "nyc": "^13.3.0",
     "rimraf": "^2.6.3",
     "sinon": "^7.2.2",
     "sinon-chai": "^3.3.0",
@@ -113,7 +113,8 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
-    "commander": "^2.19.0"
+    "commander": "^2.19.0",
+    "request": "^2.88.0"
   },
   "husky": {
     "hooks": {
