@@ -17,4 +17,4 @@ program
   .parse(process.argv);
 const { currency, amount } = program;
 
-console.log(ConvertBTC(currency, amount));
+ConvertBTC(currency, amount);

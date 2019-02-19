@@ -1,5 +1,6 @@
 // const request = require('request');
 const request = require('request-promise-native');
+const chalk = require('chalk');
 
 function convertBTC(currency = 'USD', amount = 1) {
   const url = `https://apiv2.bitcoinaverage.com/convert/global?from=BTC&to=${currency}&amount=${amount}`;
@@ -10,7 +11,7 @@ function convertBTC(currency = 'USD', amount = 1) {
       console.info(`${amount} BTC to ${currency} = ${price}`);
     })
     .catch(() => {
-      console.info('Deu ruim! Tente novamente mais tarde.');
+      console.info(chalk.red('Deu ruim! Tente novamente mais tarde.'));
     });
 }
 

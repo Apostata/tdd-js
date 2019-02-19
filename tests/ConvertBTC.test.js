@@ -2,6 +2,8 @@ import chai, { expect } from 'chai';
 import sinon from 'sinon';
 import sinonChai from 'sinon-chai';
 import nock from 'nock';
+import chalk from 'chalk';
+
 // padarao btc-converter -C USD -A 1
 import convertBTC from '../src/ConvertBTC';
 
@@ -69,6 +71,6 @@ describe('ConvertBTC', () => {
 
     await convertBTC('BRL');
 
-    expect(consoleStub).to.have.been.calledWith('Deu ruim! Tente novamente mais tarde.');
+    expect(consoleStub).to.have.been.calledWith(chalk.red('Deu ruim! Tente novamente mais tarde.'));
   });
 });
