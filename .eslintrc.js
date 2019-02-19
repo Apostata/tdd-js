@@ -5,6 +5,9 @@ module.exports = {
       "mocha": true,
       "browser": true
     },
+    "parserOptions":{
+      "ecmaVersion": 8
+    },
     "rules": {
       "no-unused-expressions": 0, // to reseto do chai friendly
       "chai-friendly/no-unused-expressions": 2, // to reseto do chai friendly,

@@ -28,26 +28,25 @@ describe('ConvertBTC', () => {
     consoleStub.restore();
   });
 
-  it('Should use currency USD and 1 as amount default', (done) => {
-    // https://apiv2.bitcoinaverage.com/convert/global?from=BTC&to=USD&amount=1
+  it('Should use currency USD and 1 as amount default', async () => {
     nock('https://apiv2.bitcoinaverage.com')
       .get('/convert/global')
-      .query({
-        from: 'BTC',
-        to: 'USD',
-        amount: 1,
-      })
-      .reply(200, {
-        success: true,
-        price: 3580.79,
-        time: '2019-02-14 19:12:49',
-      });
+      .query({ from: 'BTC', to: 'USD', amount: 1 })
+      .reply(200, responseMock);
 
-    convertBTC();
+    await convertBTC();
 
-    setTimeout(() => {
-      expect(consoleStub).to.have.been.calledWith('1 BTC to USD = 3580.79');
-      done();
-    }, 200);
+    expect(consoleStub).to.have.been.calledWith('1 BTC to USD = 3580.79');
+  });
+
+  it('Should use currency USD and 10 as amount default', async () => {
+    nock('https://apiv2.bitcoinaverage.com')
+      .get('/convert/global')
+      .query({ from: 'BTC', to: 'USD', amount: 10 })
+      .reply(200, responseMock);
+
+    await convertBTC('USD', 10);
+
+    expect(consoleStub).to.have.been.calledWith('10 BTC to USD = 3580.79');
   });
 });

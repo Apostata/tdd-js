@@ -32,6 +32,7 @@ module.exports = {
     '@babel/plugin-proposal-throw-expressions',
     '@babel/plugin-transform-flow-strip-types',
     '@babel/plugin-transform-regenerator',
+    '@babel/plugin-transform-async-to-generator',
   ],
   env: { // ambiente teste
     test: {
