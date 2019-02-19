@@ -9,8 +9,8 @@ function convertBTC(currency = 'USD', amount = 1) {
       const { price } = apiResponse;
       console.info(`${amount} BTC to ${currency} = ${price}`);
     })
-    .catch((err) => {
-      console.log(err);
+    .catch(() => {
+      console.info('Deu ruim! Tente novamente mais tarde.');
     });
 }
 

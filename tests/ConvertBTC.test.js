@@ -49,4 +49,26 @@ describe('ConvertBTC', () => {
 
     expect(consoleStub).to.have.been.calledWith('10 BTC to USD = 3580.79');
   });
+
+  it('Should use currency BRL and 1 as amount default', async () => {
+    nock('https://apiv2.bitcoinaverage.com')
+      .get('/convert/global')
+      .query({ from: 'BTC', to: 'BRL', amount: 1 })
+      .reply(200, responseMock);
+
+    await convertBTC('BRL');
+
+    expect(consoleStub).to.have.been.calledWith('1 BTC to BRL = 3580.79');
+  });
+
+  it('Should show message when api return with error', async () => {
+    nock('https://apiv2.bitcoinaverage.com')
+      .get('/convert/global')
+      .query({ from: 'BTC', to: 'BRL', amount: 2 })
+      .replyWithError('Error');
+
+    await convertBTC('BRL');
+
+    expect(consoleStub).to.have.been.calledWith('Deu ruim! Tente novamente mais tarde.');
+  });
 });
