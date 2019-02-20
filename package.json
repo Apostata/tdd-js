@@ -10,9 +10,8 @@
   },
   "scripts": {
     "babel": "./node_modules/.bin/babel-node examples/albums.js",
-    "test": "cross-env NODE_ENV=test ./node_modules/.bin/mocha --require @babel/register tests/**/*.test.js",
-    "test:nyan": "cross-env NODE_ENV=test ./node_modules/.bin/mocha --require @babel/register --reporter nyan tests/**/*.test.js",
-    "test:webpack": "cross-env NODE_ENV=test ./node_modules/.bin/mocha-webpack --webpack-config=config/webpack-dev.config.js \"tests/**/*.test.js\"",
+    "test": "cross-env NODE_ENV=test ./node_modules/.bin/mocha --require @babel/register --require tests/helpers/setup.js tests/specs/**/*.test.js",
+    "test:nyan": "cross-env NODE_ENV=test ./node_modules/.bin/mocha --require @babel/register --require tests/helpers/setup.js --reporter nyan tests/specs/**/*.test.js",
     "test:watch": "yarn test --watch",
     "test:coverage": "nyc yarn test",
     "lint": "./node_modules/.bin/eslint src/*.js",
@@ -20,11 +19,8 @@
     "build:watch": "yarn build --watch",
     "build:all": "yarn build && yarn build:umd && yarn build:umd:min",
     "clear": "rimraf bin",
-    "coveralls": "yarn test:coverage && nyc report --reporter=text-lcov | coveralls"
-  },
-  "preferGlobal": true,
-  "bin": {
-    "btc-converter": "bin/main.js"
+    "coveralls": "yarn test:coverage && nyc report --reporter=text-lcov | coveralls",
+    "storybook": "./node_modules/.bin/start-storybook -p 9001 -c ./storybook"
   },
   "nyc": {
     "check-coverage": true,
@@ -78,15 +74,20 @@
     "@babel/plugin-transform-runtime": "^7.2.0",
     "@babel/polyfill": "^7.2.5",
     "@babel/preset-env": "^7.2.3",
+    "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
     "@babel/runtime": "^7.2.0",
+    "@storybook/react": "^4.1.12",
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-dynamic-import-node": "^2.2.0",
     "babel-plugin-istanbul": "^5.1.0",
     "chai": "^4.2.0",
+    "chai-enzyme": "^1.0.0-beta.1",
     "coveralls": "^3.0.2",
     "cross-env": "^5.2.0",
+    "enzyme": "^3.9.0",
+    "enzyme-adapter-react-16": "^1.9.1",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.1.0",
     "eslint-plugin-chai-friendly": "^0.4.1",
@@ -114,11 +115,9 @@
     "webpack-dev-server": "^3.1.14"
   },
   "dependencies": {
-    "chalk": "^2.4.2",
-    "commander": "^2.19.0",
-    "ora": "^3.1.0",
-    "request": "^2.88.0",
-    "request-promise-native": "^1.0.7"
+    "prop-types": "^15.7.2",
+    "react": "^16.8.2",
+    "react-dom": "^16.8.2"
   },
   "husky": {
     "hooks": {

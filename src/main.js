@@ -1,20 +1,12 @@
-#!/usr/bin/env node
+import React from 'react';
+import PropTypes from 'prop-types';
 
-/*
- comentário acima é ncessário para dizer aos sistemas operacionais unix
-  que é para rodar em node
-*/
+const Component = (props) => (
+    <h1>Hello {props.name}!</h1>
+);
 
-const program = require('commander');
-const pkg = require('../package.json');
-const ConvertBTC = require('./ConvertBTC');
+Component.propTypes = {
+  name: PropTypes.string.isRequired,
+};
 
-program
-  .version(pkg.version)
-  .description('Convert Bitcoin to any currency defined')
-  .option('-C, --currency <currency>', 'Currency to be converted. Default(USD)')
-  .option('-A, --amount <amount>', 'Volume in bitcon to be converted. Default(1)')
-  .parse(process.argv);
-const { currency, amount } = program;
-
-ConvertBTC(currency, amount);
+export default Component;
