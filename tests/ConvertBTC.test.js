@@ -23,6 +23,10 @@ describe('ConvertBTC', () => {
   let consoleStub;
 
   beforeEach(() => {
+    /*
+    como o mocka usa também o console log, se usarmos como stub,
+    não irá mostrar os reports do mocka, por isso usaremos o console.info
+    */
     consoleStub = sinon.stub(console, 'info');
   });
 
@@ -38,7 +42,7 @@ describe('ConvertBTC', () => {
 
     await convertBTC();
 
-    expect(consoleStub).to.have.been.calledWith('1 BTC to USD = 3580.79');
+    expect(consoleStub).to.have.been.calledWith(`${chalk.red(1)} BTC to ${chalk.cyan('USD')} = ${chalk.yellow(3580.79)}`);
   });
 
   it('Should use currency USD and 10 as amount default', async () => {
@@ -49,7 +53,7 @@ describe('ConvertBTC', () => {
 
     await convertBTC('USD', 10);
 
-    expect(consoleStub).to.have.been.calledWith('10 BTC to USD = 3580.79');
+    expect(consoleStub).to.have.been.calledWith(`${chalk.red(10)} BTC to ${chalk.cyan('USD')} = ${chalk.yellow(3580.79)}`);
   });
 
   it('Should use currency BRL and 1 as amount default', async () => {
@@ -60,7 +64,7 @@ describe('ConvertBTC', () => {
 
     await convertBTC('BRL');
 
-    expect(consoleStub).to.have.been.calledWith('1 BTC to BRL = 3580.79');
+    expect(consoleStub).to.have.been.calledWith(`${chalk.red(1)} BTC to ${chalk.cyan('BRL')} = ${chalk.yellow(3580.79)}`);
   });
 
   it('Should show message when api return with error', async () => {
