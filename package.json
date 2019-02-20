@@ -2,7 +2,7 @@
   "name": "btc-converter",
   "version": "1.0.1",
   "description": "Implementando testes com js",
-  "main": "index.js",
+  "main": "src/main.js",
   "standard": {
     "env": [
       "mocha"
@@ -10,10 +10,10 @@
   },
   "scripts": {
     "babel": "./node_modules/.bin/babel-node examples/albums.js",
-    "test": "cross-env NODE_ENV=test ./node_modules/.bin/mocha --require @babel/register --require tests/helpers/setup.js tests/specs/**/*.test.js",
+    "test": "./node_modules/.bin/cross-env NODE_ENV=test ./node_modules/.bin/mocha --require @babel/register --require tests/helpers/setup.js tests/specs/**/*.test.js",
     "test:nyan": "cross-env NODE_ENV=test ./node_modules/.bin/mocha --require @babel/register --require tests/helpers/setup.js --reporter nyan tests/specs/**/*.test.js",
     "test:watch": "yarn test --watch",
-    "test:coverage": "nyc yarn test",
+    "test:coverage": "./node_modules/.bin/nyc ./node_modules/.bin/cross-env NODE_ENV=test ./node_modules/.bin/mocha --require @babel/register --require tests/helpers/setup.js tests/specs/**/*.test.js",
     "lint": "./node_modules/.bin/eslint src/*.js",
     "build": "yarn clear && ./node_modules/.bin/babel --out-dir bin src",
     "build:watch": "yarn build --watch",
@@ -25,9 +25,13 @@
   "nyc": {
     "check-coverage": true,
     "functions": 80,
+    "lines": 80,
     "reporter": [
       "text",
       "html"
+    ],
+    "require": [
+      "@babel/register"
     ],
     "exclude": [
       "node_modules/**",
@@ -37,7 +41,8 @@
       "babel.config.js"
     ],
     "instrument": false,
-    "sourceMap": false
+    "sourceMap": false,
+    "cache": false
   },
   "repository": {
     "type": "git",
@@ -81,7 +86,7 @@
     "babel-eslint": "^10.0.1",
     "babel-loader": "^8.0.4",
     "babel-plugin-dynamic-import-node": "^2.2.0",
-    "babel-plugin-istanbul": "^5.1.0",
+    "babel-plugin-istanbul": "^5.1.1",
     "chai": "^4.2.0",
     "chai-enzyme": "^1.0.0-beta.1",
     "coveralls": "^3.0.2",
