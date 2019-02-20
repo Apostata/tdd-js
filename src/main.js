@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const Component = (props) => (
-    <h1>Hello {props.name}!</h1>
+const Component = ({ name }) => (
+  <h1>Hello {name}!</h1>
 );
 
 Component.propTypes = {
