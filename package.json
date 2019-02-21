@@ -9,17 +9,16 @@
     ]
   },
   "scripts": {
-    "babel": "./node_modules/.bin/babel-node examples/albums.js",
+    "babel": "./node_modules/.bin/babel src -d dist",
     "test": "./node_modules/.bin/cross-env NODE_ENV=test ./node_modules/.bin/mocha --require @babel/register --require tests/helpers/setup.js tests/specs/**/*.test.js",
     "test:nyan": "cross-env NODE_ENV=test ./node_modules/.bin/mocha --require @babel/register --require tests/helpers/setup.js --reporter nyan tests/specs/**/*.test.js",
     "test:watch": "yarn test --watch",
     "test:coverage": "./node_modules/.bin/nyc ./node_modules/.bin/cross-env NODE_ENV=test ./node_modules/.bin/mocha --require @babel/register --require tests/helpers/setup.js tests/specs/**/*.test.js",
     "lint": "./node_modules/.bin/eslint src/*.js",
-    "build": "yarn clear && ./node_modules/.bin/babel --out-dir bin src",
+    "build": "yarn clear && yarn babel",
+    "build:minify" : "yarn build && ./node_modules/.bin/uglifyjs -c -m -o dist/FullHeader.min.js dist/FullHeader.js",
     "build:watch": "yarn build --watch",
-    "build:all": "yarn build && yarn build:umd && yarn build:umd:min",
-    "clear": "rimraf bin",
-    "coveralls": "yarn test:coverage && nyc report --reporter=text-lcov | coveralls",
+    "clear": "rimraf dist",
     "storybook": "./node_modules/.bin/start-storybook -p 9001 -c ./storybook"
   },
   "nyc": {
@@ -114,6 +113,7 @@
     "sinon": "^7.2.2",
     "sinon-chai": "^3.3.0",
     "sinon-stub-promise": "^4.0.0",
+    "uglify-js": "^3.4.9",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.0",

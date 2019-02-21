@@ -50,6 +50,6 @@ storiesOf('FullHeader', module)
       bgColor="#3299BB"
       textColor="#FF9900"
       font="cursive"
-      bgVideo="https://static.videezy.com/system/resources/previews/000/000/150/original/waterdrop.mp4"
+      video="https://static.videezy.com/system/resources/previews/000/000/150/original/waterdrop.mp4"
     />
   ));

@@ -91,4 +91,21 @@ describe('FullHeader', () => {
       expect(wrapper).to.have.style('background-image').equal('url(http://imagem.com.br/imagem/imagem.jpg)');
     });
   });
+
+  context('video', () => {
+    it('Should render video tag when video passed', () => {
+      const wrapper = shallow(<FullHeader video="video.mp4" />);
+      expect(wrapper.find('video')).to.have.length(1);
+    });
+
+    it('Should not render video tag when no video', () => {
+      const wrapper = shallow(<FullHeader />);
+      expect(wrapper.find('video')).to.have.length(0);
+    });
+
+    it('Should render h2 with title passed', () => {
+      const wrapper = shallow(<FullHeader video="video.mp4" />);
+      expect(wrapper.find('video').props().src).to.be.eql('video.mp4');
+    });
+  });
 });
